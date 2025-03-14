@@ -1,0 +1,149 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.buttons-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.buttons-content {
+    width: 100%;
+    max-width: 950px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 50px 0;
+}
+
+.insta-button {
+    width: 100%;
+    background-color: #CBE2F0;
+    font-family: Rubik;
+    font-size: 20px;
+    color: #445259;
+    text-align: center;
+    text-decoration: none;
+    position: relative;
+    padding: 18px 10px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    animation: fadeIn 1.5s linear;
+}
+
+.insta-button svg, .insta-button img {
+    position: absolute;
+    top: 18%;
+    left: 15px;
+}
+
+.insta-button span {
+    display: inline-block;
+    width: 80%;
+}
+
+
+/* Estilos para la tabla */
+.button-manager-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+
+.button-manager-table th,
+.button-manager-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.button-manager-table th {
+    background-color: #f9f9f9;
+    font-weight: bold;
+}
+
+.button-manager-table input[type="text"],
+.button-manager-table input[type="url"] {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.button-manager-table .button {
+    margin: 2px;
+}
+
+/* Espacio adicional entre filas */
+.button-manager-table tbody tr {
+    background-color: #fff;
+}
+
+.button-manager-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Botones de mover */
+.move-up, .move-down {
+    font-size: 16px;
+    line-height: 1;
+    padding: 5px 10px;
+}
+
+/* Estilos para la vista previa del ícono */
+.icon-preview {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.icon-preview-image {
+    max-width: 50px;
+    max-height: 50px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    background-color: #fff;
+}
+
+.icon-preview-placeholder {
+    display: block;
+    color: #999;
+    font-style: italic;
+}
+
+/* Espacio adicional entre elementos */
+.button-manager-table td {
+    padding: 15px;
+}
+
+/* Estilos para el campo de URL del ícono */
+.icon-url {
+    width: 60%;
+    margin-right: 10px;
+}
+/* Responsividad */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .buttons-content {
+        padding: 30px 40px;
+    }
+}
+
+@media (max-width: 767px) {
+    .buttons-content {
+        padding: 50px 20px;
+    }
+    .insta-button {
+        min-height: 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .insta-button svg, .insta-button img {
+        position: initial;
+    }
+}
