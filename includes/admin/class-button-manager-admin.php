@@ -131,15 +131,15 @@ class Button_Manager_Admin {
         }
     
         // Procesar la eliminación de un botón
-        if (isset($_GET['action']) && $_GET['action'] === 'delete_button' && isset($_GET['button_id']) && wp_verify_nonce($_GET['_wpnonce'], 'delete_button_nonce')) {
-            $button_id = intval($_GET['button_id']);
-            if (isset($buttons[$button_id])) {
-                unset($buttons[$button_id]);
-                $button_sets[$set_id] = array_values($buttons); // Reindexar el array
-                update_option('button_manager_sets', $button_sets);
-                echo '<div class="updated"><p>' . esc_html__('Button deleted successfully!', 'button-manager') . '</p></div>';
-            }
+    if (isset($_GET['button_action']) && $_GET['button_action'] === 'delete' && isset($_GET['button_id']) && wp_verify_nonce($_GET['_wpnonce'], 'delete_button_nonce')) {
+        $button_id = intval($_GET['button_id']);
+        if (isset($buttons[$button_id])) {
+            unset($buttons[$button_id]);
+            $button_sets[$set_id] = array_values($buttons); // Reindexar el array
+            update_option('button_manager_sets', $button_sets);
+            echo '<div class="updated"><p>' . esc_html__('Button deleted successfully!', 'button-manager') . '</p></div>';
         }
+    }
     
         // Procesar la adición de un nuevo botón
         if (isset($_POST['add_button']) && wp_verify_nonce($_POST['button_manager_nonce'], 'add_button_nonce')) {
@@ -199,7 +199,7 @@ class Button_Manager_Admin {
                                 echo '<td>';
                                 echo '<button type="button" class="button button-secondary move-up">&#9650;</button>';
                                 echo '<button type="button" class="button button-secondary move-down">&#9660;</button>';
-                                echo '<a href="' . esc_url(admin_url('admin.php?page=button_manager&action=edit_set&set_id=' . $set_id . '&action=delete_button&button_id=' . $index . '&_wpnonce=' . wp_create_nonce('delete_button_nonce'))) . '" class="button button-secondary">' . esc_html__('Delete', 'button-manager') . '</a>';
+                                echo '<a href="' . esc_url(admin_url('admin.php?page=button_manager&action=edit_set&set_id=' . $set_id . '&button_action=delete&button_id=' . $index . '&_wpnonce=' . wp_create_nonce('delete_button_nonce'))) . '" class="button button-secondary">' . esc_html__('Delete', 'button-manager') . '</a>';
                                 echo '</td>';
                                 echo '</tr>';
                             }
