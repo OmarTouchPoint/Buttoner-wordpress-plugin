@@ -87,7 +87,7 @@ if (isset($_POST['add_button']) && wp_verify_nonce($_POST['button_manager_nonce'
                         echo '<td>';
                         echo '<button type="button" class="button button-secondary move-up">&#9650;</button>';
                         echo '<button type="button" class="button button-secondary move-down">&#9660;</button>';
-                        echo '<a href="' . esc_url(admin_url('admin.php?page=button_manager&action=edit_set&set_id=' . $set_id . '&action=delete_button&button_id=' . $index . '&_wpnonce=' . wp_create_nonce('delete_button_nonce'))) . '" class="button button-secondary">' . esc_html__('Delete', 'button-manager') . '</a>';
+                        echo '<a href="' . esc_url(admin_url('admin.php?page=button_manager&action=edit_set&set_id=' . $set_id . '&button_action=delete&button_id=' . $index . '&_wpnonce=' . wp_create_nonce('delete_button_nonce'))) . '" class="button button-secondary">' . esc_html__('Delete', 'button-manager') . '</a>';
                         echo '</td>';
                         echo '</tr>';
                     }
